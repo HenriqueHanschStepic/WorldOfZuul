@@ -94,6 +94,7 @@ public class Game
         System.out.println();
     }
 
+    /*DJ Kevinho*/
     /**
      * Dado um comando, processa (ou seja: executa) o comando.
      * @param command O comando a ser processado.
@@ -150,19 +151,7 @@ public class Game
         String direction = command.getSecondWord();
 
         // Try to leave current room.
-        Room nextRoom = null;
-        if(direction.equals("norte")) {
-            nextRoom = currentRoom.northExit;
-        }
-        if(direction.equals("leste")) {
-            nextRoom = currentRoom.eastExit;
-        }
-        if(direction.equals("sul")) {
-            nextRoom = currentRoom.southExit;
-        }
-        if(direction.equals("oeste")) {
-            nextRoom = currentRoom.westExit;
-        }
+        Room nextRoom = currentRoom.getExit(direction);
 
         if (nextRoom == null) {
             System.out.println("Não há uma porta!");
@@ -188,5 +177,4 @@ public class Game
             return true;  // significa que queremos sair
         }
     }
-}
 }
